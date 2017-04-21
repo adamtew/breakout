@@ -1,7 +1,13 @@
 #ifndef _GAME_HPP_
 #define _GAME_HPP_
 
+//#include <OpenGL/gl3.h>
+//#define GLFW_INCLUDE_NONE
+#define GLFW_INCLUDE_GLCOREARB
 #include <GLFW/glfw3.h>
+#include "Shader.hpp"
+#include "Resource_Manager.hpp"
+#include "Sprite_Renderer.hpp"
 
 enum GameState {
   GAME_ACTIVE,
