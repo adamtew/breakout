@@ -4,9 +4,6 @@ SpriteRenderer * Renderer;
 GameObject *Player;
 BallObject *Ball;
 
-
-
-
 Game::Game(GLuint width, GLuint height)
   : State(GAME_ACTIVE), Width(width), Height(height)
 {
