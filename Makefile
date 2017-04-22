@@ -3,7 +3,7 @@ CPPFLAGS = -std=c++11 -g
 INC = -Isoil2/src/SOIL2/
 LIB = -Lsoil2/lib/macosx -lsoil2-debug -lglfw -lglew -framework OpenGL \
 			-framework Cocoa -framework IOKit -framework CoreFoundation -framework CoreVideo
-OBJ = main.o Game.o Shader.o Texture.o Resource_Manager.o Sprite_Renderer.o
+OBJ = main.o Game.o Shader.o Texture.o Resource_Manager.o Sprite_Renderer.o Game_Object.o Game_Level.o
 OBJ_DIR = obj
 EXE = breakout
 
@@ -15,6 +15,8 @@ all : $(OBJ)
 		$(OBJ_DIR)/Texture.o \
 		$(OBJ_DIR)/Resource_Manager.o \
 		$(OBJ_DIR)/Sprite_Renderer.o \
+		$(OBJ_DIR)/Game_Object.o \
+		$(OBJ_DIR)/Game_Level.o \
 		-o $(EXE) 
 
 main.o : main.cpp
@@ -34,6 +36,12 @@ Resource_Manager.o : Resource_Manager.hpp Resource_Manager.cpp
 
 Sprite_Renderer.o : Sprite_Renderer.hpp Sprite_Renderer.cpp
 	$(CC) $(CPPFLAGS) -c Sprite_Renderer.cpp -o $(OBJ_DIR)/$@
+
+Game_Object.o : Game_Object.hpp Game_Object.cpp
+	$(CC) $(CPPFLAGS) -c Game_Object.cpp -o $(OBJ_DIR)/$@
+
+Game_Level.o : Game_Level.hpp Game_Level.cpp
+	$(CC) $(CPPFLAGS) -c Game_Level.cpp -o $(OBJ_DIR)/$@
 
 run : all
 	./$(EXE)
