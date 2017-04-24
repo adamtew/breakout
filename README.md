@@ -20,4 +20,5 @@ The program is fairly low-level and uses some static libraries to compile, but t
 - [OpenGL](https://www.opengl.org/)
 - [glm](http://glm.g-truc.net/0.9.8/index.html)
 - [glfw3](http://www.glfw.org/)
+- [GL/glcorearb.h](https://www.khronos.org/registry/OpenGL/api/GL/glcorearb.h)
 
