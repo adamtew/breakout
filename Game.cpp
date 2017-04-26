@@ -22,11 +22,12 @@ void Game::Init()
     // Load shaders
     ResourceManager::LoadShader("shaders/sprite.vert", "shaders/sprite.frag", nullptr, "sprite");
     // Configure shaders
-    glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(this->Width), static_cast<GLfloat>(this->Height), 0.0f, -1.0f, 1.0f);
-    ResourceManager::GetShader("sprite").Use().SetInteger("sprite", 0);
+    // glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(this->Width), static_cast<GLfloat>(this->Height), 0.0f, -1.0f, 1.0f);
+    glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(this->Width), static_cast<GLfloat>(this->Height), 0.0f, -50.5f, 50.5f);
+    ResourceManager::GetShader("sprite").Use().SetInteger("image", 0);
     ResourceManager::GetShader("sprite").SetMatrix4("projection", projection);
     // Load textures
-    ResourceManager::LoadTexture("textures/family.jpg", GL_TRUE, "face");
+    // ResourceManager::LoadTexture("textures/family.jpg", GL_TRUE, "face");
     // Set render-specific controls
     ResourceManager::LoadTexture("textures/family.jpg", GL_FALSE, "background");
     ResourceManager::LoadTexture("textures/awesomeface.png", GL_TRUE, "face");
@@ -114,13 +115,13 @@ void Game::Render()
 
 void Game::ResetLevel()
 {
-    if (this->Level == 0)this->Levels[0].Load("levels/one.lvl", this->Width, this->Height * 0.5f);
-    else if (this->Level == 1)
-        this->Levels[1].Load("levels/two.lvl", this->Width, this->Height * 0.5f);
-    else if (this->Level == 2)
-        this->Levels[2].Load("levels/three.lvl", this->Width, this->Height * 0.5f);
-    else if (this->Level == 3)
-        this->Levels[3].Load("levels/four.lvl", this->Width, this->Height * 0.5f);
+    switch (this->Level)
+    {
+        case 0: this->Levels[0].Load("levels/1.lvl", this->Width, this->Height * 0.5f); break;
+        case 1: this->Levels[1].Load("levels/2.lvl", this->Width, this->Height * 0.5f); break;
+        case 2: this->Levels[2].Load("levels/3.lvl", this->Width, this->Height * 0.5f); break;
+        case 3: this->Levels[3].Load("levels/4.lvl", this->Width, this->Height * 0.5f); break;
+    }
 }
 
 void Game::ResetPlayer()

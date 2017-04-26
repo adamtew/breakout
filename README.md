@@ -2,9 +2,9 @@
 
 > This is a remake of the classic arcade game Breakout. Developed using C++ with OpenGL. Most of the code was found following [this](https://learnopengl.com/#!In-Practice/2D-Game/Breakout) tutorial.
 
-### Usage
+### Build
 
-> The source code is not completely cross-platform, but it has been tested on macOS and Windows. To build from source enter the following:
+The source code is not completely cross-platform, but it has been tested on macOS and Windows. To build from source enter the following:
 
 ```
 git clone https://github.com/adamtew/breakout.git
