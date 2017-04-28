@@ -70,4 +70,25 @@ gdb :
 		$(OBJ_DIR)/Sprite_Renderer.o \
 		-g -o $(EXE) 
 
-	
+## Stuff from work
+CC = /usr/local/bin/gcc
+CXX = /usr/local/bin/g++
+　
+TARGET = main
+　
+OBJ_DIR = obj
+OBJ = file1.o file2.o file3.o
+　
+　
+$(TARGET) : $(OBJ)
+  $(CXX) -o $(TARGET) $(patsub %, $(OBJ_DIR)/%, $(OBJ))
+　
+　
+file.o : file.h
+  $(CXX) -c file.c
+　
+$(OBJ) : $(pathsub %.o, %.h, $@)
+  $(CXX) -c $(pathsub, %.o, %.c, $@)
+　
+$(OBJ) : $(pathsub %.o, %.hpp, $@)
+  $(CXX) -c $(pathsub, %.o, %.cpp, $@)
